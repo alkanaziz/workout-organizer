@@ -30,6 +30,15 @@ const CreateWorkout = () => {
     setFormMuscleGroups(structuredClone(formMuscleGroups));
   };
 
+  const handleAddExercise = (formMuscleGroup: IFormMuscleGroup) => {
+    const addedExercise = {
+      exercise: formMuscleGroup.selectedExercise.name,
+      sets: formMuscleGroup.numberOfSets,
+    };
+    addedExercises.push(addedExercise);
+    setAddedExercises(structuredClone(addedExercises));
+  };
+
   const addWorkout = () => {
     (async () => {
       const workout = addedExercises;
@@ -82,7 +91,10 @@ const CreateWorkout = () => {
                     )
                   }
                 />
-                <button className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded">
+                <button
+                  onClick={() => handleAddExercise(formMuscleGroup)}
+                  className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded"
+                >
                   Add
                 </button>
               </div>

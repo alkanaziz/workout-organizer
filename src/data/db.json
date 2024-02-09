@@ -2,22 +2,18 @@
   "workouts": [
     {
       "0": {
-        "exercise": "Squats",
+        "exercise": "Bulgarian Split Squats",
         "sets": 5
       },
       "1": {
-        "exercise": "Bench Press",
+        "exercise": "Incline Bench Press",
         "sets": 5
       },
       "2": {
         "exercise": "Deadlifts",
-        "sets": 5
+        "sets": 10
       },
-      "3": {
-        "exercise": "Military Press",
-        "sets": 5
-      },
-      "id": "aa9e"
+      "id": "063d"
     }
   ]
 }
