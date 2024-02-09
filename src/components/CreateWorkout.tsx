@@ -11,7 +11,7 @@ const CreateWorkout = () => {
   const [addedExercises, setAddedExercises] = useState<
     { exercise: string; sets: number }[]
   >([]);
-  const [workouts, setWorkout] = useState<IWorkout[]>([]);
+  //   const [workouts, setWorkouts] = useState<IWorkout>([]);
 
   const handleAddExercise = () => {
     if (selectedExercise === "" && sets === "") {
@@ -31,13 +31,13 @@ const CreateWorkout = () => {
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(`${backendUrl}/workouts`);
-      const _workouts = response.data;
-      setWorkout(_workouts);
-    })();
-  }, []);
+  //   useEffect(() => {
+  //     (async () => {
+  //       const response = await axios.get(`${backendUrl}/workouts`);
+  //       const _workouts = response.data;
+  //       setWorkouts(_workouts);
+  //     })();
+  //   }, []);
 
   const addWorkout = () => {
     (async () => {
