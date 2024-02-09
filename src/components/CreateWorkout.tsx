@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import exercises from "../data/exercises.json";
-import { IWorkout } from "../interfaces";
+import muscleGroups from "../data/muscleGroups.json";
+// import { IWorkout } from "../interfaces";
+import { ISet } from "../interfaces";
 import axios from "axios";
 
 const backendUrl = "http://localhost:3501";
 
 const CreateWorkout = () => {
   const [selectedExercise, setSelectedExercise] = useState("");
-  const [sets, setSets] = useState("");
+  const [sets, setSets] = useState<ISet[]>([]);
   const [addedExercises, setAddedExercises] = useState<
     { exercise: string; sets: number }[]
   >([]);
@@ -62,7 +63,7 @@ const CreateWorkout = () => {
       <div className="w-full flex flex-col items-center bg-slate-950 rounded-lg p-4">
         <h2 className="text-2xl md:text-3xl font-bold">Create your Workout</h2>
         <ul className="my-4">
-          {exercises.map((muscleGroup) => (
+          {muscleGroups.map((muscleGroup) => (
             <li className="my-1" key={muscleGroup.id}>
               <p className="font-medium text-lg">{muscleGroup.name}</p>
               <div className="flex gap-2">
