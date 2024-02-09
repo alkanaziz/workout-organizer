@@ -22,6 +22,14 @@ const CreateWorkout = () => {
     setFormMuscleGroups(structuredClone(formMuscleGroups));
   };
 
+  const handleChangeNumberOfSets = (
+    numberOfSets: number,
+    formMuscleGroup: IFormMuscleGroup
+  ) => {
+    formMuscleGroup.numberOfSets = numberOfSets;
+    setFormMuscleGroups(structuredClone(formMuscleGroups));
+  };
+
   const addWorkout = () => {
     (async () => {
       const workout = addedExercises;
@@ -67,6 +75,12 @@ const CreateWorkout = () => {
                   type="text"
                   placeholder="Sets"
                   value={formMuscleGroup.numberOfSets}
+                  onChange={(e) =>
+                    handleChangeNumberOfSets(
+                      Number(e.target.value),
+                      formMuscleGroup
+                    )
+                  }
                 />
                 <button className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded">
                   Add
