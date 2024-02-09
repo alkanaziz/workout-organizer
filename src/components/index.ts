@@ -1,3 +1,4 @@
 import Navbar from "./Navbar";
+import CreateWorkout from "./CreateWorkout";
 
-export { Navbar };
+export { Navbar, CreateWorkout };
