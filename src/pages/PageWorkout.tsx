@@ -1,5 +1,11 @@
+import { CreateWorkout } from "../components";
+
 const PageWorkout = () => {
-  return <div>PageWorkout</div>;
+  return (
+    <>
+      <CreateWorkout />
+    </>
+  );
 };
 
 export default PageWorkout;
