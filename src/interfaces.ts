@@ -5,11 +5,6 @@ export interface IWorkout {
   sets: number;
 }
 
-export interface ISet {
-  muscleGroupId: number;
-  numberOfSets: number;
-}
-
 export interface IMuscleGroup {
   id: number;
   name: string;

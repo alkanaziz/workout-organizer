@@ -1,44 +1,20 @@
 import { useState, useEffect } from "react";
-import muscleGroups from "../data/muscleGroups.json";
+import formMuscleGroups from "../data/muscleGroups.json";
 // import { IWorkout } from "../interfaces";
-import { ISet } from "../interfaces";
 import axios from "axios";
+import { createFormMuscleGroups } from "../utils";
 
 const backendUrl = "http://localhost:3501";
+const _formMuscleGroups = createFormMuscleGroups(formMuscleGroups);
 
 const CreateWorkout = () => {
+  const [formMuscleGroups, setFormMuscleGroups] = useState(_formMuscleGroups);
   const [selectedExercise, setSelectedExercise] = useState("");
-  const [sets, setSets] = useState<ISet[]>([]);
   const [addedExercises, setAddedExercises] = useState<
     { exercise: string; sets: number }[]
   >([]);
-  //   const [workouts, setWorkouts] = useState<IWorkout>([]);
 
-  const handleAddExercise = () => {
-    if (selectedExercise === "" && sets === "") {
-      return alert("Please select an exercise and enter the number of sets.");
-    } else if (sets === "" && selectedExercise !== "") {
-      return alert("Please enter the number of sets.");
-    } else if (sets !== "" && selectedExercise === "") {
-      return alert("Please select an exercise.");
-    } else {
-      setAddedExercises([
-        ...addedExercises,
-        { exercise: selectedExercise, sets: Number(sets) },
-      ]);
-      console.log(addedExercises);
-      setSelectedExercise("");
-      setSets("");
-    }
-  };
-
-  //   useEffect(() => {
-  //     (async () => {
-  //       const response = await axios.get(`${backendUrl}/workouts`);
-  //       const _workouts = response.data;
-  //       setWorkouts(_workouts);
-  //     })();
-  //   }, []);
+  const handleAddExercise = () => {};
 
   const addWorkout = () => {
     (async () => {
@@ -63,9 +39,9 @@ const CreateWorkout = () => {
       <div className="w-full flex flex-col items-center bg-slate-950 rounded-lg p-4">
         <h2 className="text-2xl md:text-3xl font-bold">Create your Workout</h2>
         <ul className="my-4">
-          {muscleGroups.map((muscleGroup) => (
-            <li className="my-1" key={muscleGroup.id}>
-              <p className="font-medium text-lg">{muscleGroup.name}</p>
+          {formMuscleGroups.map((formMuscleGroup) => (
+            <li className="my-1" key={formMuscleGroup.id}>
+              <p className="font-medium text-lg">{formMuscleGroup.name}</p>
               <div className="flex gap-2">
                 <select
                   className="text-slate-950 w-[10rem] p-1 px-4 rounded"
@@ -73,7 +49,7 @@ const CreateWorkout = () => {
                   onChange={(e) => setSelectedExercise(e.target.value)}
                 >
                   <option className="bg-blue-50">Choose...</option>
-                  {muscleGroup.exercises.map((exercise) => {
+                  {formMuscleGroup.exercises.map((exercise) => {
                     return <option key={exercise.id}>{exercise.name}</option>;
                   })}
                 </select>
@@ -81,8 +57,7 @@ const CreateWorkout = () => {
                   className="w-[3rem] p-1 rounded text-slate-950 outline-none"
                   type="text"
                   placeholder="Sets"
-                  value={sets}
-                  onChange={(e) => setSets(e.target.value)}
+                  value={formMuscleGroup.numberOfSets}
                 />
                 <button
                   className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded"
