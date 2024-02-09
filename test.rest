@@ -1,0 +1,92 @@
+@url = http://localhost:3501
+
+### GET ALL WORKOUTS
+GET {{url}}/workouts
+
+### CREATE A WORKOUT
+POST {{url}}/workouts
+content-type: application/json
+
+{
+    "name": "Chest Day",
+    "exercises": [
+        {
+            "name": "Bench Press",
+            "sets": 4,
+            "reps": 8,
+            "weight": 135
+        },
+        {
+            "name": "Incline Bench Press",
+            "sets": 4,
+            "reps": 8,
+            "weight": 135
+        },
+        {
+            "name": "Decline Bench Press",
+            "sets": 4,
+            "reps": 8,
+            "weight": 135
+        }
+    ]
+}
+
+### UPDATE A WORKOUT
+PUT {{url}}/workouts/7b72
+content-type: application/json
+
+{
+    "name": "Chest Day",
+    "exercises": [
+        {
+            "name": "Bench Press",
+            "sets": 5,
+            "reps": 8,
+            "weight": 150
+        },
+        {
+            "name": "Incline Bench Press",
+            "sets": 4,
+            "reps": 8,
+            "weight": 135
+        },
+        {
+            "name": "Decline Bench Press",
+            "sets": 3,
+            "reps": 8,
+            "weight": 135
+        }
+    ]
+}
+
+### UPDATE A WORKOUT FIELD
+PATCH {{url}}/workouts/7b72
+content-type: application/json
+
+{
+    "exercises": [
+        {
+            "name": "Incline Bench Press",
+            "sets": 5,
+            "reps": 8,
+            "weight": 150
+        },
+        {
+            "name": "Decline Bench Press",
+            "sets": 4,
+            "reps": 8,
+            "weight": 135
+        },
+        {
+            "name": "Bench Press",
+            "sets": 3,
+            "reps": 8,
+            "weight": 135
+        }
+    ]
+}
+
+### DELETE A WORKOUT
+DELETE {{url}}/workouts/873f
+```
+

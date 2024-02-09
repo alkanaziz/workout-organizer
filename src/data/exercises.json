@@ -1,0 +1,182 @@
+{
+    "legs": [
+        {
+            "id": 1,
+            "exercise": "Squats"
+        },
+        {
+            "id": 2,
+            "exercise": "Lunges"
+        },
+        {
+            "id": 3,
+            "exercise": "Split Squads"
+        },
+        {
+            "id": 4,
+            "exercise": "Leg Press"
+        },
+        {
+            "id": 5,
+            "exercise": "Leg Curls"
+        },
+        {
+            "id": 6,
+            "exercise": "Leg Extensions"
+        },
+        {
+            "id": 7,
+            "exercise": "Calf Raises"
+        }
+    ], 
+    "back": [
+        {
+            "id": 1,
+            "exercise": "Pullups"
+        },
+        {
+            "id": 2,
+            "exercise": "Lat Pulldowns"
+        },
+        {
+            "id": 3,
+            "exercise": "Seated Rows"
+        },
+        {
+            "id": 4,
+            "exercise": "Bent Over Rows"
+        },
+        {
+            "id": 5,
+            "exercise": "Deadlifts"
+        },
+        {
+            "id": 6,
+            "exercise": "Back Extensions"
+        },
+        {
+            "id": 7,
+            "exercise": "T-Bar Rows"
+        }
+    ],
+    "chest": [
+        {
+            "id": 1,
+            "exercise": "Bench Press"
+        },
+        {
+            "id": 2,
+            "exercise": "Incline Bench Press"
+        },
+        {
+            "id": 3,
+            "exercise": "Decline Bench Press"
+        },
+        {
+            "id": 4,
+            "exercise": "Chest Flys"
+        },
+        {
+            "id": 5,
+            "exercise": "Pushups"
+        },
+        {
+            "id": 6,
+            "exercise": "Chest Press"
+        },
+        {
+            "id": 7,
+            "exercise": "Chest Dips"
+        }
+    ], 
+    "shoulders": [
+        {
+            "id": 1,
+            "exercise": "Shoulder Press"
+        },
+        {
+            "id": 2,
+            "exercise": "Lateral Raises"
+        },
+        {
+            "id": 3,
+            "exercise": "Front Raises"
+        },
+        {
+            "id": 4,
+            "exercise": "Rear Delt Flys"
+        },
+        {
+            "id": 5,
+            "exercise": "Shrugs"
+        },
+        {
+            "id": 6,
+            "exercise": "Upright Rows"
+        },
+        {
+            "id": 7,
+            "exercise": "Arnold Press"
+        }
+    ],
+    "biceps": [
+        {
+            "id": 1,
+            "exercise": "Barbell Curls"
+        },
+        {
+            "id": 2,
+            "exercise": "Dumbbell Curls"
+        },
+        {
+            "id": 3,
+            "exercise": "Preacher Curls"
+        },
+        {
+            "id": 4,
+            "exercise": "Hammer Curls"
+        },
+        {
+            "id": 5,
+            "exercise": "Concentration Curls"
+        },
+        {
+            "id": 6,
+            "exercise": "Cable Curls"
+        },
+        {
+            "id": 7,
+            "exercise": "Reverse Curls"
+        }
+    ],
+    "triceps": [
+        {
+            "id": 1,
+            "exercise": "Tricep Dips"
+        },
+        {
+            "id": 2,
+            "exercise": "Skull Crushers"
+        },
+        {
+            "id": 3,
+            "exercise": "Tricep Pushdowns"
+        },
+        {
+            "id": 4,
+            "exercise": "Tricep Extensions"
+        },
+        {
+            "id": 5,
+            "exercise": "Close Grip Bench Press"
+        },
+        {
+            "id": 6,
+            "exercise": "Tricep Kickbacks"
+        },
+        {
+            "id": 7,
+            "exercise": "Overhead Tricep Extensions"
+        }
+    ]
+}
