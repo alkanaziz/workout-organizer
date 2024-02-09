@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
 import formMuscleGroups from "../data/muscleGroups.json";
-// import { IWorkout } from "../interfaces";
 import axios from "axios";
 import { createFormMuscleGroups } from "../utils";
+import { IFormMuscleGroup } from "../interfaces";
 
 const backendUrl = "http://localhost:3501";
 const _formMuscleGroups = createFormMuscleGroups(formMuscleGroups);
 
 const CreateWorkout = () => {
   const [formMuscleGroups, setFormMuscleGroups] = useState(_formMuscleGroups);
-  const [selectedExercise, setSelectedExercise] = useState("");
   const [addedExercises, setAddedExercises] = useState<
     { exercise: string; sets: number }[]
   >([]);
 
-  const handleAddExercise = () => {};
+  const handleChangeExercise = (
+    selectedExerciseName: string,
+    formMuscleGroup: IFormMuscleGroup
+  ) => {
+    formMuscleGroup.selectedExercise.name = selectedExerciseName;
+    console.log(formMuscleGroup);
+    setFormMuscleGroups(structuredClone(formMuscleGroups));
+  };
 
   const addWorkout = () => {
     (async () => {
@@ -45,12 +51,15 @@ const CreateWorkout = () => {
               <div className="flex gap-2">
                 <select
                   className="text-slate-950 w-[10rem] p-1 px-4 rounded"
-                  value={selectedExercise}
-                  onChange={(e) => setSelectedExercise(e.target.value)}
+                  value={formMuscleGroup.selectedExercise.name}
+                  onChange={(e) =>
+                    handleChangeExercise(e.target.value, formMuscleGroup)
+                  }
                 >
-                  <option className="bg-blue-50">Choose...</option>
                   {formMuscleGroup.exercises.map((exercise) => {
-                    return <option key={exercise.id}>{exercise.name}</option>;
+                    return (
+                      <option value={exercise.name}>{exercise.name}</option>
+                    );
                   })}
                 </select>
                 <input
@@ -59,10 +68,7 @@ const CreateWorkout = () => {
                   placeholder="Sets"
                   value={formMuscleGroup.numberOfSets}
                 />
-                <button
-                  className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded"
-                  onClick={handleAddExercise}
-                >
+                <button className="bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded">
                   Add
                 </button>
               </div>
