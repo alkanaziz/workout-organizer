@@ -1,28 +1,3 @@
 {
-  "workouts": [
-    {
-      "name": "Chest Day",
-      "exercises": [
-        {
-          "name": "Bench Press",
-          "sets": 5,
-          "reps": 8,
-          "weight": 150
-        },
-        {
-          "name": "Incline Bench Press",
-          "sets": 4,
-          "reps": 8,
-          "weight": 135
-        },
-        {
-          "name": "Decline Bench Press",
-          "sets": 3,
-          "reps": 8,
-          "weight": 135
-        }
-      ],
-      "id": "7b72"
-    }
-  ]
+  "workouts": []
 }
