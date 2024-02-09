@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import exercises from "../data/exercises.json";
+import { IWorkout } from "../interfaces";
+import axios from "axios";
+
+const backendUrl = "http://localhost:3501";
 
 const CreateWorkout = () => {
   const [selectedExercise, setSelectedExercise] = useState("");
   const [sets, setSets] = useState("");
   const [addedExercises, setAddedExercises] = useState<
-    { exercise: string; sets: string }[]
+    { exercise: string; sets: number }[]
   >([]);
+  const [workouts, setWorkout] = useState<IWorkout[]>([]);
 
   const handleAddExercise = () => {
     if (selectedExercise === "" && sets === "") {
@@ -18,11 +23,38 @@ const CreateWorkout = () => {
     } else {
       setAddedExercises([
         ...addedExercises,
-        { exercise: selectedExercise, sets: sets },
+        { exercise: selectedExercise, sets: Number(sets) },
       ]);
+      console.log(addedExercises);
       setSelectedExercise("");
       setSets("");
     }
+  };
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get(`${backendUrl}/workouts`);
+      const _workouts = response.data;
+      setWorkout(_workouts);
+    })();
+  }, []);
+
+  const addWorkout = () => {
+    (async () => {
+      const workout = addedExercises;
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      try {
+        const response = await axios.post(`${backendUrl}/workouts`, workout, {
+          headers,
+        });
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+    alert("Workout created successfully!");
   };
 
   return (
@@ -71,14 +103,17 @@ const CreateWorkout = () => {
           {addedExercises.map((item, index) => (
             <div
               key={index}
-              className="w-full flex justify-between bg-blue-500/20 py-1 px-2 my-1 rounded"
+              className="w-full flex justify-between bg-blue-500/20 hover:bg-blue-500/30 py-1 px-2 my-1 rounded"
             >
               <p>{item.exercise}</p>
               <p>{item.sets} Sets</p>
             </div>
           ))}
         </div>
-        <button className="w-4/5 mx-auto bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded">
+        <button
+          onClick={addWorkout}
+          className="w-4/5 mx-auto bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out py-1 px-2 rounded"
+        >
           Create Workout
         </button>
       </div>
