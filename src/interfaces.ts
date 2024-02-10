@@ -1,10 +1,3 @@
-export interface IWorkout {
-  id: string;
-  name: string;
-  exercise: string;
-  sets: number;
-}
-
 export interface IMuscleGroup {
   id: number;
   name: string;

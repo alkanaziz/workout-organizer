@@ -87,6 +87,6 @@ content-type: application/json
 }
 
 ### DELETE A WORKOUT
-DELETE {{url}}/workouts/7b72
+DELETE {{url}}/workouts/063d
 ```
 

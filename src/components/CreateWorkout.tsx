@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import formMuscleGroups from "../data/muscleGroups.json";
-import axios from "axios";
+import { useState } from "react";
 import { createFormMuscleGroups } from "../utils";
 import { IFormMuscleGroup } from "../interfaces";
+import formMuscleGroups from "../data/muscleGroups.json";
+import axios from "axios";
 
 const backendUrl = "http://localhost:3501";
 const _formMuscleGroups = createFormMuscleGroups(formMuscleGroups);
