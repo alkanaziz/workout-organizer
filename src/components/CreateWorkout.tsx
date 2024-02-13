@@ -42,6 +42,25 @@ const CreateWorkout = () => {
     alert("Workout created successfully!");
     setAddedExercises(() => []);
   };
+  /*
+  const addWorkout = () => {
+    (async () => {
+      const workout = addedExercises;
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      try {
+        const response = await axios.post(`${backendUrl}/workouts`, workout, {
+          headers,
+        });
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+    alert("Workout created successfully!");
+  };
+*/
 
   return (
     <>
