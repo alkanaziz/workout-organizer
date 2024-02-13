@@ -2,9 +2,7 @@ import { useState } from "react";
 import { createFormMuscleGroups } from "../utils";
 import { IFormMuscleGroup } from "../interfaces";
 import formMuscleGroups from "../data/muscleGroups.json";
-import axios from "axios";
 
-const backendUrl = "http://localhost:3501";
 const _formMuscleGroups = createFormMuscleGroups(formMuscleGroups);
 
 const CreateWorkout = () => {
@@ -40,6 +38,12 @@ const CreateWorkout = () => {
   };
 
   const addWorkout = () => {
+    localStorage.setItem("workout", JSON.stringify(addedExercises));
+    alert("Workout created successfully!");
+    setAddedExercises(() => []);
+  };
+  /*
+  const addWorkout = () => {
     (async () => {
       const workout = addedExercises;
       const headers = {
@@ -56,6 +60,7 @@ const CreateWorkout = () => {
     })();
     alert("Workout created successfully!");
   };
+*/
 
   return (
     <>
