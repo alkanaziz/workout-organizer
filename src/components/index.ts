@@ -1,4 +1,6 @@
-import Navbar from "./Navbar";
-import CreateWorkout from "./CreateWorkout";
+import Navbar from "./Navbar/Navbar";
+import CreateWorkout from "./CreateWorkout/CreateWorkout";
+import StartWorkout from "./ExecuteWorkout/StartWorkout";
+import EndWorkout from "./ExecuteWorkout/EndWorkout";
 
-export { Navbar, CreateWorkout };
+export { Navbar, CreateWorkout, StartWorkout, EndWorkout };

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { createFormMuscleGroups } from "../utils";
-import { IFormMuscleGroup } from "../interfaces";
-import formMuscleGroups from "../data/muscleGroups.json";
+import { createFormMuscleGroups } from "../../utils";
+import { IFormMuscleGroup } from "../../interfaces";
+import formMuscleGroups from "../../data/muscleGroups.json";
 
 const _formMuscleGroups = createFormMuscleGroups(formMuscleGroups);
 
